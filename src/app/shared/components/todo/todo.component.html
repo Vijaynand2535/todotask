@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group mt-4">
+        <label for="todoItem">Todo Item</label>
+        <input type="text" #todoItem class="form-control" placeholder="Type something">
+        <button class="btn btn-outline-primary my-4"
+        (click)="onTodoAdd(todoItem)"
+        >Add Todo</button>
+      </div>
+      
+    </div>
+    
+    <div class="col-md-6">
+      <ul class="list-group mt-5"
+      *ngIf="todoArr.length > 0 ; else noTodo"
+      >
+        <li class="list-group-item mb-3"
+        *ngFor="let todo of todoArr">
+              {{todo.todoItem}}
+        </li>
+      </ul>
+      <ng-template #noTodo>
+        <p class="alert alert-warning mt-3">
+            No todo items added yet
+          </p>
+      </ng-template>
+    </div>
+  </div>
+</div>
