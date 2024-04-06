@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Itodo } from '../models/todo';
+import { Istd } from '../models/todo';
 
 @Component({
   selector: 'app-todo',
@@ -7,23 +7,50 @@ import { Itodo } from '../models/todo';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  todoArr : Array<Itodo> = [ 
+  // todoArr : Array<Itodo> = [ 
+  //   // {
+  //   //   todoItem : "javascript"
+  //   // }
+  // ]
+
+  stdArr: Array<Istd>= [
     // {
-    //   todoItem : "javascript"
+    //   fname : "vijay",
+    //   lname : "benkunde",
+    //   email : "vijayb@123",
+    //   contact : 8408802535
     // }
   ]
+
+  
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onTodoAdd(todo : HTMLInputElement){
-    console.log(todo.value)
-    let todoObj : Itodo = {
-        todoItem : todo.value
+  // onTodoAdd(todo : HTMLInputElement){
+  //   console.log(todo.value)
+  //   let todoObj : Itodo = {
+  //       todoItem : todo.value
+  //   }
+  //   this.todoArr.push(todoObj)
+  //   todo.value = '';
+  // }
+
+  onStdArr(fname : HTMLInputElement,lname:HTMLInputElement,email:HTMLInputElement,contact:HTMLInputElement){
+       
+
+    if(fname.value && lname.value && email.value && contact.value){
+      let newstd : Istd = {
+        fname : fname.value,
+        lname : lname.value,
+        email : email.value,
+        contact : +contact.value
+       }
+       console.log(newstd)
+       fname.value = lname.value = email.value = contact.value = ''
+       this.stdArr.push(newstd)
     }
-    this.todoArr.push(todoObj)
-    todo.value = '';
   }
 
 }

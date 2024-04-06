@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group mt-4">
@@ -27,4 +27,61 @@
       </ng-template>
     </div>
   </div>
+</div> -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <div class="form-group">
+                <label for="text"><b>First Name</b></label>
+                <input type="text" id="fname" #fname class="form-control" placeholder="Enter Your First Name">
+            </div>
+            <div class="form-group">
+                <label for="text"><b>Last Name</b></label>
+                <input type="text" id="lname" #lname class="form-control" placeholder="Enter Your Last Name">
+            </div>
+            <div class="form-group">
+                <label for="text"><b>Email</b></label>
+                <input type="text" id="email" #email class="form-control" placeholder="Enter Your Email">
+            </div>
+            <div class="form-group">
+                <label for="text"><b>Contact</b></label>
+                <input type="text" id="contact" #contact class="form-control" placeholder="Enter Your Contact">
+            </div>
+
+            <button 
+            (click)="onStdArr(fname,lname,email,contact)"
+            class="btn btn-outline-info btn-block">Add Student Info</button>
+            
+            
+        </div>
+        <div class="col-md-6">
+          <table class="table table-bordered" *ngIf="stdArr.length > 0; else noStdData" >
+            <thead>
+              <tr>
+                <th>Sr.no</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let std of stdArr ; index as i ">
+              <tr>
+                <td>{{i + 1}}</td>
+                <td>{{std.fname}}</td>
+                <td>{{std.lname}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.contact}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #noStdData>
+            <p class="alert alert-warning mt-3">
+                No todo items added yet
+              </p>
+          </ng-template>
+        </div>
+    </div>
 </div>
