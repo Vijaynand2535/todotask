@@ -13,7 +13,7 @@ export class TodoComponent implements OnInit {
   //   // }
   // ]
 
-  stdArr: Array<Istd>= [
+  stdArr: Array<Istd> = [
     // {
     //   fname : "vijay",
     //   lname : "benkunde",
